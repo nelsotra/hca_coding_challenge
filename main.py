@@ -43,8 +43,12 @@ class FileProcessing(webapp2.RequestHandler):
 		raw_file = self.request.POST.get('tsv_file')
 
 		#Error checking to make sure the file is a tsv file
-		if not raw_file.filename.endswith('.tsv'):
-			self.response.write("Uploaded file is not a tsv file!")
+		try:
+			if not raw_file.filename.endswith('.tsv'):
+				self.response.write("Uploaded file is not a tsv file!")
+				return
+		except:
+			self.response.write("There was an error with the file")
 			return
 
 		#Once we have the file, I'm using python's csv module to read it as a tsv file
