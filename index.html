@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <h2>HCA Coding Challenge - Travis Nelson</h2>
+      <h4> - Upload a TSV file to a database</h4>
+      <h4> - Calculate the Total Revenue for all the records</h4>
+
+      <form  id="uploadFile" enctype="multipart/form-data" method="post" action="/upload">
+
+        <fieldset style="width:400px">
+          <p>
+            <label for="file">Choose a file to upload:</label>
+          </p>
+          <p>
+            <input id="fileupload" name="tsv_file" type="file" accept=".tsv"/>
+          </p>
+          <p><p>
+          <p>
+            <input type="submit" value="submit" id="submit" />
+          </p>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
+{% endautoescape %}
