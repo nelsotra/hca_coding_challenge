@@ -20,7 +20,7 @@ class MainPage(webapp2.RequestHandler):
 	def get(self):
 		#The HTML is kept in a separate file, to help keep the code organized
 		template = JINJA_ENVIRONMENT.get_template('index.html')
-        self.response.write(template.render())
+		self.response.write(template.render())
 
 
 '''
@@ -45,7 +45,7 @@ class FileProcessing(webapp2.RequestHandler):
 		#Error checking to make sure the file is a tsv file
 		try:
 			if not raw_file.filename.endswith('.tsv'):
-				self.response.write("Uploaded file is not a tsv file!")
+				self.response.write("Error. Uploaded file is not a tsv file!")
 				return
 		except:
 			self.response.write("There was an error with the file")
@@ -67,10 +67,14 @@ class FileProcessing(webapp2.RequestHandler):
 		#Using a helper method to do the actual uploading of the new data to the database
 		row_errors, total, row_count = self.upload_data(csv_reader, raw_file)
 
+		#If upload_data returns None, then there was an error uploading the data, so we just return
+		if row_errors is None:
+			return
+
 		#If there was an error uploading a row of data to the database, the upload_data method keeps a count of the number of errors, so we just
 		#display that for the user
 		if row_errors > 0:
-			self.response.write("Removed {} rows of data due to errors.".format(row_errors))
+			self.response.write("Removed {} rows from the file due to data errors.".format(row_errors))
 			self.response.write("<br>")
 
 		#Otherwise, just update the page to indicate how many rows of new data were added to the database
@@ -109,15 +113,17 @@ class FileProcessing(webapp2.RequestHandler):
 			#If there are any errors, the except block will catch them and display it for the user
 			try:
 				total += float(row[self.ITEM_PRICE_INDEX]) * float(row[self.ITEM_COUNT_INDEX])
-				if file_key is not None:
+				if file_key is not None and file_key.key is not None:
 					row_key = Data_Row(item=row[0],description=row[1],price=row[2],count=row[3],vendor=row[4],vendor_address=row[5], parent=file_key.key)
 					row_key.put()
 					row_count += 1
 				else:
-					self.response.write("File key was none.")
+					self.response.write("Error.  File key was none.")
+					return None, None, None
 			except Exception as e:
-				row_errors += 1
-				self.response.write("except: {}".format(e))
+					row_errors += 1
+					self.response.write("Error. Exception: {}".format(e))
+					self.response.write("<br>")
 
 		return row_errors, total, row_count
 
@@ -141,7 +147,7 @@ class FileProcessing(webapp2.RequestHandler):
 			for t in tmp_data:
 				t.key.delete()
 				row_delete_count += 1
-				f.key.delete()
+			f.key.delete()
 
 		return row_delete_count
 
@@ -156,8 +162,8 @@ class FileProcessing(webapp2.RequestHandler):
 			self.response.write("<br>")
 			tmp_data = Data_Row.query(ancestor=f.key).fetch()
 			for t in tmp_data:
-					self.response.write("data: {}".format(t))
-					self.response.write("<br>")
+				self.response.write("data: {}".format(t))
+				self.response.write("<br>")
 
 
 '''
