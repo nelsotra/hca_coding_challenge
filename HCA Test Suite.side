@@ -1,0 +1,144 @@
+{
+  "id": "8378b375-4811-4c29-97a2-3cfbfb4669e4",
+  "name": "HCA Test Suite",
+  "url": "https://hca-coding-challenge-travis.appspot.com",
+  "tests": [{
+    "id": "f63a1bcd-06e8-4734-b36f-325b2dd11c0e",
+    "name": "data2_test",
+    "commands": [{
+      "id": "f03b92d7-71c8-4eb4-a9bb-730fa0b9f413",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "value": ""
+    }, {
+      "id": "4eef58b9-518b-420e-b950-bba5c3c3bf73",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=fileupload",
+      "value": "30,10"
+    }, {
+      "id": "db8cf043-7ba7-4f30-b823-7b2c8ec3d5f0",
+      "comment": "",
+      "command": "type",
+      "target": "id=fileupload",
+      "value": "C:\\Users\\trav_\\Downloads\\coding_challenge-master\\coding_challenge-master\\data2.tsv"
+    }, {
+      "id": "942cee87-236f-4cca-a783-14547ee4ae66",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=submit",
+      "value": "24,9"
+    }, {
+      "id": "a320d7c7-8ba1-4c09-91dc-df8b92b881c7",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=h2",
+      "value": "404,14"
+    }, {
+      "id": "84dacf3d-fb97-43a7-8537-8d0d1aff0be6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h2",
+      "value": "HCA Coding Challenge - Travis Nelson"
+    }, {
+      "id": "bbd5cc37-37f8-4720-916d-ff63046099cf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "//h4[2]",
+      "value": "Total Revenue: 3455.46"
+    }]
+  }, {
+    "id": "5530fc59-116a-4b5e-8aef-d6aec2eed832",
+    "name": "data3_test",
+    "commands": [{
+      "id": "0d685679-6d20-40f0-9f43-2a64200d0dd2",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "value": ""
+    }, {
+      "id": "dea9bf50-3265-40d0-8ca3-35eabf3c985b",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=fileupload",
+      "value": "51,14"
+    }, {
+      "id": "44518527-4e2e-4642-a212-f04681afe3b7",
+      "comment": "",
+      "command": "type",
+      "target": "id=fileupload",
+      "value": "C:\\Users\\trav_\\Downloads\\coding_challenge-master\\coding_challenge-master\\data3.tsv"
+    }, {
+      "id": "2894c332-02ed-45a3-be05-fd9e2364a795",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=submit",
+      "value": "30,14"
+    }, {
+      "id": "55402102-8eaf-4d48-b623-421c8e1ad086",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=body.vsc-initialized",
+      "value": "321,218"
+    }, {
+      "id": "d09ca187-e123-4798-8d68-50fe4418a269",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=body.vsc-initialized",
+      "value": "HCA Coding Challenge - Travis Nelson\\nResults Page\\n \\n \\n \\n \\n \\n \\n \\n\\nFound the same file name in database... The old data will be overwitten!Error. Exception: could not convert string to float: abcError. Exception: could not convert string to float: ghiRemoved 2 rows from the file due to data errors.Added 0 rows of new data to the database.Total Revenue: 0"
+    }, {
+      "id": "bd977116-772b-4685-911b-ada048d8f276",
+      "comment": "",
+      "command": "clickAt",
+      "target": "//h4[2]",
+      "value": "121,18"
+    }, {
+      "id": "5e81d268-c6fc-4368-a603-b0a1cbeff62c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "//h4[2]",
+      "value": "Total Revenue: 0"
+    }, {
+      "id": "21676574-9d9a-43b7-8ec7-413a86d8c763",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=h2",
+      "value": "397,13"
+    }, {
+      "id": "6c9a2c40-5bf8-40c2-bcb1-2a3cd1644fb9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h2",
+      "value": "HCA Coding Challenge - Travis Nelson"
+    }, {
+      "id": "168ac8df-f585-4bcd-990b-2cfaca30d1bb",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=body.vsc-initialized",
+      "value": "277,254"
+    }, {
+      "id": "53a4689f-5607-47e3-b2b1-4be6f6f4c069",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=body.vsc-initialized",
+      "value": "HCA Coding Challenge - Travis Nelson\\nResults Page\\n \\n \\n \\n \\n \\n \\n \\n\\nFound the same file name in database... The old data will be overwitten!Error. Exception: could not convert string to float: abcError. Exception: could not convert string to float: ghiRemoved 2 rows from the file due to data errors.Added 0 rows of new data to the database.Total Revenue: 0"
+    }, {
+      "id": "4bb29e77-cb0d-48b8-a6fe-732eaac66535",
+      "comment": "",
+      "command": "clickAt",
+      "target": "//input[@value='Back to Main Page']",
+      "value": "92,8"
+    }]
+  }],
+  "suites": [{
+    "id": "753b478e-7536-455b-86e5-d07706617672",
+    "name": "Default Suite",
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f63a1bcd-06e8-4734-b36f-325b2dd11c0e"]
+  }],
+  "urls": ["https://hca-coding-challenge-travis.appspot.com/"],
+  "plugins": [],
+  "version": "1.0"
+}
